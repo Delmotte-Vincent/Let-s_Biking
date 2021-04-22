@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Let's biking light client</title>
+        <link rel="stylesheet" href="client.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+        <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+        <script type="text/javascript" src="map.js"></script>
+    </head>
+
+    <body>
+        
+            <div class="menu">
+                <label for="location">Current location</label><br>
+                <input name="locationInput" id="location">
+                <br>
+                <br>
+                <label for="destination">Destination</label><br>
+                <input name="destinationInput" id="destination">
+                <br>
+                <br>
+                <button id="retrievePaths" onclick="getPath();">Validate</button>
+            </div>
+            <div id="map">
+                <script>openMap()</script>
+            </div>        
+            
+    </body>
+</html>

@@ -1,0 +1,11 @@
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\obj\Debug\launch.csprojAssemblyReference.cache
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\obj\Debug\launch.csproj.CoreCompileInputs.cache
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\launch.exe.config
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\launch.exe
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\launch.pdb
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\WebProxyService.dll
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\WebProxyService.pdb
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\bin\Debug\WebProxyService.dll.config
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\obj\Debug\launch.csproj.CopyComplete
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\obj\Debug\launch.exe
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\launch\obj\Debug\launch.pdb
