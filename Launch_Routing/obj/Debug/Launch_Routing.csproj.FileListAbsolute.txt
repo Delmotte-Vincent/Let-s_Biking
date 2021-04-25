@@ -1,0 +1,12 @@
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\Launch_Routing.exe.config
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\Launch_Routing.exe
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\Launch_Routing.pdb
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\RoutingWithBikes.dll
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\Newtonsoft.Json.dll
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\RoutingWithBikes.pdb
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\bin\Debug\RoutingWithBikes.dll.config
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\obj\Debug\Launch_Routing.csprojAssemblyReference.cache
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\obj\Debug\Launch_Routing.csproj.CoreCompileInputs.cache
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\obj\Debug\Launch_Routing.csproj.CopyComplete
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\obj\Debug\Launch_Routing.exe
+C:\Users\delmo\OneDrive\Bureau\SI4\S2\Let's_Biking\Let-s_Biking\Launch_Routing\obj\Debug\Launch_Routing.pdb

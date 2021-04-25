@@ -60,3 +60,4 @@ function drawPath(coordinateA, coordinateB, velo) {
 
     this.map.addLayer(vector);
 }
+
