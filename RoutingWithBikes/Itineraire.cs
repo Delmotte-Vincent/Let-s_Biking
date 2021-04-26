@@ -8,7 +8,6 @@ namespace RoutingWithBikes
 {
     public class Itineraire
     {
-
         public List<List<Double>> Etape1 { get; set; }
         public List<Step> Indication1 { get; set; }
         public List<List<Double>> Etape2 { get; set; }
@@ -16,7 +15,4 @@ namespace RoutingWithBikes
         public List<List<Double>> Etape3 { get; set; }
         public List<Step> Indication3 { get; set; }
     }
-
-   
-   
 }

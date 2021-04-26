@@ -10,5 +10,4 @@ namespace WebProxyService
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "Station?stationNumber={stationNumber}&contractName={contractName}")]
         string GetStationInfo(string contractName, string stationNumber);
     }
-   
 }

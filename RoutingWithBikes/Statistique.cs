@@ -9,64 +9,38 @@ namespace RoutingWithBikes
     public static class Statistique
     {
         public static List<Report> reports = new List<Report>();
-
-        
+  
         public static void addReport(Report report)
         {
             reports.Add(report);
         }
 
-        public static string globalStatistique()
+        public static List<Report> globalStatistique()
         {
-            string stat = "";
+            List<Report> listReport = new List<Report>();
             if (reports.Count == 0)
             {
-                return "There is no statistics, use station before check again";
+                return listReport;
             }
             foreach(Report report in reports)
             {
-                Station station = report.getStation();
-                stat += ">> Station : " + station.name +" used " + report.getDate()+ "\n";
+                listReport.Add(report);
             }
-            return stat;
+            return listReport;
         }
 
-        public static string stationStatistique(string number)
+        public static List<Report> stationStatistique(string number)
         {
-            string stat = "";
-            foreach(Report report in reports)
+            List<Report> listReport = new List<Report>();
+            foreach (Report report in reports)
             {
                 if (""+report.getStation().number == number)
                 {
-                    stat += "Used " + report.getDate() + "\n";
+                    listReport.Add(report);
+                    //stat += "Used " + report.getDate() + "\n";
                 }
-            }
-            if (stat == "")
-            {
-                return "No statistic for this station yet";
-            }
-            return stat;
-        }
-    }
-
-    public class Report
-    {
-        Station station { get; set; }
-        DateTime date { get; set; }
-
-        public Report(Station station)
-        {
-            this.station = station;
-            this.date = new DateTime();
-        }
-
-        public Station getStation()
-        {
-            return this.station;
-        }
-        public DateTime getDate()
-        {
-            return this.date;
+            }            
+            return listReport;
         }
     }
 }

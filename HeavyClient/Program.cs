@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HeavyClient.RoutingBikeService;
 using Newtonsoft.Json;
 
 namespace HeavyClient
@@ -42,7 +43,12 @@ namespace HeavyClient
                 if (choix == "2")
                 {
                     Console.WriteLine("# Report of all station used #\n");
-                    Console.WriteLine(routingBike.getGlobalStat());
+                    Report[] reports = routingBike.getGlobalStat();
+                    
+                    for (int i = 0; i < reports.Length; i++)
+                    {
+                       Console.WriteLine(">> Station : " + reports[i].station.name + " used " + reports[i].date );
+                    }
                     Console.WriteLine("\npress entrée");
                     Console.ReadLine();
                 }
@@ -51,7 +57,13 @@ namespace HeavyClient
                 {
                     Console.WriteLine("Enter the station number you want to check");
                     string number = Console.ReadLine();
-                    Console.WriteLine(routingBike.getStationStat(number));
+                    Report[] reports = routingBike.getStationStat(number);
+
+                    for (int i = 0; i < reports.Length; i++)
+                    {
+                        Console.WriteLine("Used " + reports[i].date);
+                    }
+                    
                     Console.WriteLine("press entrée");
                     Console.ReadLine();
                 }

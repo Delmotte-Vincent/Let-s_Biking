@@ -58,10 +58,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\RoutingBikeService\HeavyClient.RoutingBikeService.Report.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RoutingBikeService\item.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RoutingBikeService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoutingBikeService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RoutingBikeService\RoutingBikeService.wsdl" />

@@ -53,8 +53,4 @@ namespace RoutingWithBikes
         public MainStands mainStands { get; set; }
         public object overflowStands { get; set; }
     }
-
-
-
-
 }

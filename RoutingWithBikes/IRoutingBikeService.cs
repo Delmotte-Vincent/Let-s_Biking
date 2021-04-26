@@ -17,9 +17,33 @@ namespace RoutingWithBikes
         string findPathsAsync(string location, string destination);
 
         [OperationContract]
-        string getGlobalStat();
+        List<Report> getGlobalStat();
 
         [OperationContract]
-        string getStationStat(string number);
+        List<Report> getStationStat(string number);
+    }
+
+    [DataContract]
+    public class Report
+    {
+        [DataMember]
+        public Station station { get; set; }
+        [DataMember]
+        public DateTime date { get; set; }
+
+        public Report(Station s)
+        {
+            station = s;
+            date = new DateTime();
+        }
+        
+        public Station getStation()
+        {
+            return this.station;
+        }
+        public DateTime getDate()
+        {
+            return this.date;
+        }
     }
 }

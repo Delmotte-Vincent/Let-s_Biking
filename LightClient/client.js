@@ -45,7 +45,6 @@ function initPath() {
         console.log("Stations not retrieved. Check the error in the Network or Console tab.");
     } else {
         
-    
         itineraire = JSON.parse(JSON.parse(this.responseText));
     
         for (let i = 0; i < itineraire.Etape1.length-1; i++) {
@@ -58,18 +57,6 @@ function initPath() {
         for (let i = 0; i < itineraire.Etape3.length-1; i++) {
             drawPath(itineraire.Etape3[i], itineraire.Etape3[i+1], false);
         }
-/*
-        for (let i = 0; i < itineraire.Indication1.length; i++) {
-            initDetail(itineraire.Indication1[i].instruction, "step1");
-        }
-
-        for (let i = 0; i < itineraire.Indication2.length; i++) {
-            initDetail(itineraire.Indication2[i].instruction, "step2");
-        }
-  
-        for (let i = 0; i < itineraire.Indication3.length; i++) {
-            initDetail(itineraire.Indication2[i].instruction, "step3");
-        }*/
     }
 }
 

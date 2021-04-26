@@ -11,7 +11,6 @@ namespace RoutingWithBikes
      public class RoutingBikeService : IRoutingBikeService
     {
         List<Station> stations;
-        
 
         string KEY_ORS = "5b3ce3597851110001cf6248004f1953f2ae4127bf2018aef32a694e";
         string KEY_JC = "2865f4d44201b4cce8370d3b4b9081bbb21c4963";
@@ -47,8 +46,7 @@ namespace RoutingWithBikes
             string responseBody = "";
             //this.wow = adresse;
             try
-            {
-                
+            {   
                 HttpResponseMessage response = await client.GetAsync("https://api.openrouteservice.org/geocode/search?api_key="+this.KEY_ORS+"&text="+adresse+"&boundary.country=FR");
                 response.EnsureSuccessStatusCode();
                 responseBody = await response.Content.ReadAsStringAsync();
@@ -287,12 +285,12 @@ namespace RoutingWithBikes
         }
 
 
-        public string getGlobalStat()
+        public List<Report> getGlobalStat()
         {
             return Statistique.globalStatistique();
         }
 
-        public string getStationStat(string number)
+        public List<Report> getStationStat(string number)
         {
             return Statistique.stationStatistique(number);
         }
