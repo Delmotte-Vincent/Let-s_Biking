@@ -1,7 +1,0 @@
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\bin\Debug\client.exe.config
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\bin\Debug\client.exe
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\bin\Debug\client.pdb
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\obj\Debug\client.csprojAssemblyReference.cache
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\obj\Debug\client.csproj.CoreCompileInputs.cache
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\obj\Debug\client.exe
-C:\Users\delmo\OneDrive\Bureau\SI4\S2\SOC\DELMOTTE_vincent_lets_bike\client\obj\Debug\client.pdb

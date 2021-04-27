@@ -46,30 +46,30 @@ function initPath() {
     } else {
         
         itineraire = JSON.parse(JSON.parse(this.responseText));
+
+        console.log(itineraire);
     
-        for (let i = 0; i < itineraire.Etape1.length-1; i++) {
-            drawPath(itineraire.Etape1[i], itineraire.Etape1[i+1], false);
-        }
-        for (let i = 0; i < itineraire.Etape2.length-1; i++) {
-            drawPath(itineraire.Etape2[i], itineraire.Etape2[i+1], true);
+        if (itineraire.Indication1.length > 1) {
+            for (let i = 0; i < itineraire.Etape1.length-1; i++) {
+                drawPath(itineraire.Etape1[i], itineraire.Etape1[i+1], false);
+            }
         }
         
-        for (let i = 0; i < itineraire.Etape3.length-1; i++) {
-            drawPath(itineraire.Etape3[i], itineraire.Etape3[i+1], false);
+
+        if (itineraire.Indication2.length > 1) {
+            for (let i = 0; i < itineraire.Etape2.length-1; i++) {
+                drawPath(itineraire.Etape2[i], itineraire.Etape2[i+1], true);
+            }
         }
+        
+        if (itineraire.Indication3.length > 1) {
+            for (let i = 0; i < itineraire.Etape3.length-1; i++) {
+                drawPath(itineraire.Etape3[i], itineraire.Etape3[i+1], false);
+            }
+        }
+        
     }
 }
-
-
-function printValues(obj) {
-    for(var k in obj) {
-        if(obj[k] instanceof Object) {
-            printValues(obj[k]);
-        } else {
-            document.write(obj[k] + "<br>");
-        };
-    }
-};
 
 
 function initDetail(text, bloc) {
@@ -84,30 +84,33 @@ function getDetails() {
         const pathDiv = document.getElementById("path");
         pathDiv.parentNode.removeChild(pathDiv);
         display = false;
+        first = true;
     }
     else {
+        display = true;
+        
         const myParent = document.getElementById("map");
         const pathDiv = document.createElement("div");
         pathDiv.setAttribute("id", "path");
         myParent.insertAdjacentElement('afterend', pathDiv);
-        display = true;
+        
 
         const header = document.createElement("div");
         header.setAttribute("id", "header");
         pathDiv.append(header);
 
         const button1 = document.createElement("button");
-        button1.setAttribute("classe", "buttonStep");
+        button1.setAttribute("class", "buttonStep");
         button1.setAttribute("onclick", "step1();");
         button1.textContent = "Step 1";
 
         const button2 = document.createElement("button");
-        button2.setAttribute("classe", "buttonStep");
+        button2.setAttribute("class", "buttonStep");
         button2.setAttribute("onclick", "step2();");
         button2.textContent = "Step 2";
 
         const button3 = document.createElement("button");
-        button3.setAttribute("classe", "buttonStep");
+        button3.setAttribute("class", "buttonStep");
         button3.setAttribute("onclick", "step3();");
         button3.textContent = "Step 3";
 

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace RoutingWithBikes
 {
@@ -29,21 +30,22 @@ namespace RoutingWithBikes
         [DataMember]
         public Station station { get; set; }
         [DataMember]
-        public DateTime date { get; set; }
+        public DateTime localDate { get; set; }
+        
+        [DataMember]
+        public string date { get; set; }
 
         public Report(Station s)
         {
             station = s;
-            date = new DateTime();
+            localDate = DateTime.Now;
+            date = localDate.ToString(new CultureInfo("fr-FR"));
         }
         
         public Station getStation()
         {
             return this.station;
         }
-        public DateTime getDate()
-        {
-            return this.date;
-        }
+        
     }
 }

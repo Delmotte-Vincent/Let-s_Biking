@@ -37,7 +37,6 @@ namespace RoutingWithBikes
                 if (""+report.getStation().number == number)
                 {
                     listReport.Add(report);
-                    //stat += "Used " + report.getDate() + "\n";
                 }
             }            
             return listReport;

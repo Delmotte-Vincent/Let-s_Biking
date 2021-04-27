@@ -23,7 +23,10 @@ namespace HeavyClient.RoutingBikeService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateField;
+        private string dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime localDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private HeavyClient.RoutingBikeService.Station stationField;
@@ -39,14 +42,27 @@ namespace HeavyClient.RoutingBikeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime date {
+        public string date {
             get {
                 return this.dateField;
             }
             set {
-                if ((this.dateField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.dateField, value) != true)) {
                     this.dateField = value;
                     this.RaisePropertyChanged("date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime localDate {
+            get {
+                return this.localDateField;
+            }
+            set {
+                if ((this.localDateField.Equals(value) != true)) {
+                    this.localDateField = value;
+                    this.RaisePropertyChanged("localDate");
                 }
             }
         }

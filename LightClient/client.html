@@ -13,18 +13,18 @@
     <body>
         
             <div class="menu">
-                <label for="location">Current location</label><br>
+                <label style="font-size: 20px;" for="location">Current location</label><br>
                 <input name="locationInput" id="location">
                 <br>
                 <br>
-                <label for="destination">Destination</label><br>
+                <label style="font-size: 20px;" for="destination">Destination</label><br>
                 <input name="destinationInput" id="destination">
                 <br>
                 <br>
-                <button id="retrievePaths" onclick="getPath();">Validate</button>
+                <button class ="button" onclick="getPath();">Validate</button>
                 <br>
                 <br>
-                <button id="retrievePaths" onclick="getDetails();">Details</button>
+                <button class ="button" onclick="getDetails();">Details</button>
             </div>
             <div id="map">
                 <script>openMap()</script>

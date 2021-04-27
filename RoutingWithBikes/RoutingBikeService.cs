@@ -19,7 +19,7 @@ namespace RoutingWithBikes
          * Methode REST appelée par le client légé
          * paramètres : 
          *      location : adresse de départ
-         *      destination : adresse de fin
+         *      destination : adresse d'arrivée
          */
         public string findPathsAsync(string location, string destination)
         {
@@ -38,7 +38,7 @@ namespace RoutingWithBikes
 
         /**
          * Appel OpenRoutService
-         * Convertie une adresse en une position gps
+         * Converti une adresse en une position gps
          */
         async Task<string> convertAdressAsync(string adresse)
         {
@@ -101,7 +101,7 @@ namespace RoutingWithBikes
         * Appel JCDecaux
         * Retourne la liste des stations de vélo de la ville d'Amiens 
         */
-        public async Task<List<Station>> GetListStationAsync()
+        async Task<List<Station>> GetListStationAsync()
         {
             HttpClient client = new HttpClient();
             string responseBody = "";
@@ -122,7 +122,6 @@ namespace RoutingWithBikes
 
         }
 
-        // Obtenir une station précise
         /**
          * Paramètres : nom du contrat | numéro de la station
          * Appel WebProxyService
@@ -157,7 +156,7 @@ namespace RoutingWithBikes
         /**
          * Return true si la station possède des vélos
          */
-        public Boolean BikeDispo(Station station)
+        Boolean BikeDispo(Station station)
         {
             string name = station.contractName;
             string number = "" + station.number;
@@ -173,7 +172,7 @@ namespace RoutingWithBikes
         /**
          * Return true si la station possède emplacements pour déposer le vélo
          */
-        public Boolean StandDispo(Station station)
+        Boolean StandDispo(Station station)
         {
             string name = station.contractName;
             string number = "" + station.number;
@@ -190,10 +189,10 @@ namespace RoutingWithBikes
 
         /**
          * Appel OpenRouteService
-         * renvoie un object contenant le chemin en deux points
+         * renvoie un object contenant le chemin entre deux points
          * Prend en compte le mode de déplacement (marche ou vélo)
          */
-        public async Task<OpenRouteService> Pathing(double startLongitude, double startLatitude, double endLongitude, double endLatitude, string type)
+        async Task<OpenRouteService> Pathing(double startLongitude, double startLatitude, double endLongitude, double endLatitude, string type)
         {
             string startLong = (""+startLongitude).Replace(",", ".");
             string startLat = ("" + startLatitude).Replace(",", ".");
@@ -218,10 +217,7 @@ namespace RoutingWithBikes
                     HttpResponseMessage response = await client.GetAsync("https://api.openrouteservice.org/v2/directions/cycling-regular?api_key=" + this.KEY_ORS + "&start=" + startLong + "," + startLat + "&end=" + endLong + "," + endLat);
                     response.EnsureSuccessStatusCode();
                     responseBody = await response.Content.ReadAsStringAsync();
-                }
-                
-            
-                
+                }   
             }
             catch (HttpRequestException e)
             {
@@ -232,45 +228,60 @@ namespace RoutingWithBikes
             return ors;
         }
 
-
+        /**
+         * Retourne un objet itineraire avec tous les détails d'un trajet (indication de direction et chemin)
+         * Paramètres : 
+         *      location : adresse de départ 
+         *      destination : adresse d'arrivée
+         */
         public Itineraire calculateItineraire(string location, string destination)
         {
+            //Converti adresse en json avec les informations de position
             string location_json = convertAdressAsync(location).Result;
             string destination_json = convertAdressAsync(destination).Result;
 
+            //Parse pour récupérer l'objet
             dynamic location_object = JsonConvert.DeserializeObject(location_json);
             dynamic destination_object = JsonConvert.DeserializeObject(destination_json);
 
+            //Affectation des latitudes longitudes pour le départ et l'arrivée
             double locationLatitude = location_object.features[0].geometry.coordinates[1];
             double locationLongitude = location_object.features[0].geometry.coordinates[0];
-
             double destinationLatitude = destination_object.features[0].geometry.coordinates[1];
             double destinationLongitude = destination_object.features[0].geometry.coordinates[0];
 
+            //Récupère la station la plus proche du départ (stationA) et la plus proche de l'arrivée (stationB)
             Station stationA = GetNearbyStationFrom(locationLatitude, locationLongitude, "start");
             Station stationB = GetNearbyStationFrom(destinationLatitude, destinationLongitude, "end");
 
+            //Affectation des latitudes longitudes des stations 
             double stationA_longitude = stationA.position.longitude;
             double stationA_latitude = stationA.position.latitude;
-
             double stationB_longitude = stationB.position.longitude;
             double stationB_latitude = stationB.position.latitude;
 
+            //Initialisation des trois segments du trajet (marche | velo | marche) sous forme d'objet OpenRouteService (cf classe pour plus de détails)
+            
+            //Segment 1 : Départ -> StationA (marche)
             OpenRouteService start_stationA = Pathing(locationLongitude, locationLatitude, stationA_longitude, stationA_latitude, "walk").Result;
             List<List<double>> etapeUn = start_stationA.features[0].geometry.coordinates;
             List<Step> indicationUn = start_stationA.features[0].properties.segments[0].steps;
 
+            //Segment 2 : StationA -> StationB (velo)
             OpenRouteService stationA_stationB = Pathing(stationA_longitude, stationA_latitude, stationB_longitude, stationB_latitude, "bike").Result;
             List<List<double>> etapeDeux = stationA_stationB.features[0].geometry.coordinates;
             List<Step> indicationDeux = stationA_stationB.features[0].properties.segments[0].steps;
 
+            //Segment 3 : StationB -> arrivée (marche)
             OpenRouteService stationB_end = Pathing(stationB_longitude, stationB_latitude, destinationLongitude, destinationLatitude, "walk").Result;
             List<List<double>> etapeTroix = stationB_end.features[0].geometry.coordinates;
             List<Step> indicationTrois = stationB_end.features[0].properties.segments[0].steps;
 
+            //Ajout des traces pour les statistiques
             Statistique.addReport(new Report(stationA));
             Statistique.addReport(new Report(stationB));
 
+            //Initialisation de l'objet Itineraire qui sera return
             Itineraire itineraire = new Itineraire
             {
                 Etape1 = etapeUn,
@@ -284,7 +295,9 @@ namespace RoutingWithBikes
             return itineraire;
         }
 
-
+        /**
+         * Retourne toutes les statistiques récupérées
+         */
         public List<Report> getGlobalStat()
         {
             return Statistique.globalStatistique();
@@ -294,7 +307,5 @@ namespace RoutingWithBikes
         {
             return Statistique.stationStatistique(number);
         }
-
-
     }
 }

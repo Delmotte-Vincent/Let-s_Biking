@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1e0d5e86-8243-48c9-ac25-f889ba69dd0e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="350b3f07-9da3-45b8-bf0e-38ddc6010121" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="04e09179-43b3-405d-a70e-5d12864683d3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd0" />
-    <MetadataFile FileName="RoutingBikeService.wsdl" MetadataType="Wsdl" ID="5f19d7cf-4671-4c98-83ac-d61bdcc07787" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?wsdl" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="f352440d-1b97-4367-8671-974ffe530976" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="85f7864b-df98-408e-b9c5-8638ab6a85f8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd1" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a00f036a-3619-4bdd-857c-ac555a62ad14" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd0" />
+    <MetadataFile FileName="RoutingBikeService.wsdl" MetadataType="Wsdl" ID="bb24ed41-8c59-4b2d-9f6a-823ef44f067c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="16edcaa6-177d-4a06-9f18-f27659d379f9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="3c78aa93-02e4-48fd-b380-e91625e16672" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RoutingWithBikes/InfoStation/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

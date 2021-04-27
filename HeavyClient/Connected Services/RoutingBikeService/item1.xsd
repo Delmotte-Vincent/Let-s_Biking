@@ -8,7 +8,8 @@
   <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
   <xs:complexType name="Report">
     <xs:sequence>
-      <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="localDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="station" nillable="true" type="tns:Station" />
     </xs:sequence>
   </xs:complexType>

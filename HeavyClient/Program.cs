@@ -10,7 +10,6 @@ namespace HeavyClient
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
             RoutingBikeService.IRoutingBikeService routingBike = new RoutingBikeService.RoutingBikeServiceClient();
@@ -44,13 +43,19 @@ namespace HeavyClient
                 {
                     Console.WriteLine("# Report of all station used #\n");
                     Report[] reports = routingBike.getGlobalStat();
-                    
-                    for (int i = 0; i < reports.Length; i++)
+                    if (reports.Length == 0)
                     {
-                       Console.WriteLine(">> Station : " + reports[i].station.name + " used " + reports[i].date );
+                        Console.WriteLine("No statistic yet !");
                     }
-                    Console.WriteLine("\npress entrée");
-                    Console.ReadLine();
+                    else
+                    {
+                        for (int i = 0; i < reports.Length; i++)
+                        {
+                            Console.WriteLine(">> Station : " + reports[i].station.name + " used " + reports[i].date);
+                        }
+                        Console.WriteLine("\npress entrée");
+                        Console.ReadLine();
+                    }
                 }
 
                 if (choix == "3")
@@ -63,7 +68,6 @@ namespace HeavyClient
                     {
                         Console.WriteLine("Used " + reports[i].date);
                     }
-                    
                     Console.WriteLine("press entrée");
                     Console.ReadLine();
                 }
@@ -72,6 +76,9 @@ namespace HeavyClient
 
             /* Methodes utilitaires */
 
+            /**
+             * Affiche les indications dans la console
+             */
             void PromptInfo(List<Step> steps)
             {
                 foreach (Step step in steps)
@@ -80,6 +87,9 @@ namespace HeavyClient
                 }
             }
 
+            /**
+             * Affiche l'intégralité du trajet avec des pause dans la console
+             */
             void PromptItineraire(Itineraire it)
             {
                 Console.Write("--- Walk course ---\n");
